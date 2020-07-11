@@ -62,7 +62,7 @@ class OnTheMapClient {
             if error != nil { // Handle error…
                 return
             }
-            let range = Range(5..<data!.count)
+            let range = (5..<data!.count)
             let newData = data?.subdata(in: range) /* subset response data! */
             print(String(data: newData!, encoding: .utf8)!)
             print("Session Id == \(Auth.sessionId)")
@@ -70,5 +70,28 @@ class OnTheMapClient {
         }
         task.resume()
     
+    }
+    
+
+    class func getStudentLocation(completion: @escaping ([StudentLocation]?, Error?)->()){
+        var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/StudentLocation?order=-updatedAt")!)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                return
+            }
+            if error != nil { // Handle error...
+                return
+            }
+            let decoder = JSONDecoder()
+            
+            do {
+                let responseObject = try decoder.decode( Result.self, from: data)
+                completion(responseObject.results, nil)
+            } catch {
+                print("Oh Man ERROR!!!!!")
+            }
+        }
+        task.resume()
     }
 }
