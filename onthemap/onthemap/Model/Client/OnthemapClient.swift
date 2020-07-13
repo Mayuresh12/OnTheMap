@@ -69,10 +69,10 @@ class OnTheMapClient {
             
         }
         task.resume()
-    
+        
     }
     
-
+    
     class func getStudentLocation(completion: @escaping ([StudentLocation]?, Error?)->()){
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/StudentLocation?order=-updatedAt")!)
         let session = URLSession.shared

@@ -13,7 +13,7 @@ class StudentLocationTableView: UITableViewController {
     var data = [StudentLocation]()
     var count = 0
     var activityView: UIActivityIndicatorView?
-
+    
     @IBOutlet var studentTableView: UITableView!
     
     @IBAction func reloadData(_ sender: Any) {
@@ -37,8 +37,8 @@ class StudentLocationTableView: UITableViewController {
             }
         }
     }
-
-
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return count
     }
