@@ -12,9 +12,23 @@ import UIKit
 class StudentInformationViewController: UIViewController {
  
     
-        override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var findOnTheMapOutlet: UIButton!
+    @IBOutlet weak var enterLocationOutlet: UITextField!
+    
+    
+    @IBAction func findOntheMapButton(_ sender: Any) {
+    }
+  
+    @IBAction func cancelButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        findOnTheMapOutlet.layer.cornerRadius = 10
+        enterLocationOutlet.layer.cornerRadius = 10
+        
+    }
 }
