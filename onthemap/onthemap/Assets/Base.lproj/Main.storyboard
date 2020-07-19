@@ -176,6 +176,21 @@
             </objects>
             <point key="canvasLocation" x="1543.125" y="-979.22535211267609"/>
         </scene>
+        <!--Student Information View Controller-->
+        <scene sceneID="mmr-4R-gTG">
+            <objects>
+                <viewController id="rmW-O3-U6Z" customClass="StudentInformationViewController" customModule="onthemap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y5Z-Ic-h1g">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="F3E-e8-1FC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zx0-wH-0eu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2689" y="-987"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jcF-yS-5i3">
             <objects>
