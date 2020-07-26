@@ -38,6 +38,9 @@ class StudentLocationTableView: UITableViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+                self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return count
@@ -46,7 +49,7 @@ class StudentLocationTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = studentTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! StudentLocationTableViewCell
         let row = indexPath.row
-        cell.studentName.text = "\(data[row].firstName)  \(data[row].lastName)"
+        cell.studentName.text = "\(data[row].firstName!)  \(data[row].lastName!)"
         return cell
     }
     

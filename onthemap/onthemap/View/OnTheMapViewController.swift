@@ -17,20 +17,23 @@ class OnTheMapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         mapView.delegate = self
     }
+    
     override func viewWillAppear(_ animated: Bool) {
     
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+
         var annotations = [MKPointAnnotation]()
     
         OnTheMapClient.getStudentLocation { (result, error) in
             if let result = result  {
                 DispatchQueue.main.async {
                     for location in result {
-                        let long = CLLocationDegrees(location.longitude )
-                        let lat = CLLocationDegrees(location.latitude )
+                        let long = CLLocationDegrees(location.longitude! )
+                        let lat = CLLocationDegrees(location.latitude! )
                         let cords = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                        let mediaURL = location.mediaURL
-                        let firstName = location.firstName
-                        let lastName = location.lastName
+                        let mediaURL = location.mediaURL!
+                        let firstName = location.firstName!
+                        let lastName = location.lastName!
                         
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = cords

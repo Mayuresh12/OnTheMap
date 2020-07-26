@@ -15,6 +15,8 @@
 		EA64AC6524BBE2C800816E58 /* StudentLocationTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64AC6424BBE2C800816E58 /* StudentLocationTableVIewCell.swift */; };
 		EA64AC6724BBF89700816E58 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64AC6624BBF89700816E58 /* Data.swift */; };
 		EA64AC6924C4237100816E58 /* StudentInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64AC6824C4237100816E58 /* StudentInformationViewController.swift */; };
+		EA6C57C424CD5BC90039CD39 /* InforamtionpostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6C57C324CD5BC80039CD39 /* InforamtionpostingViewController.swift */; };
+		EA6C57C624CD97590039CD39 /* AddStudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6C57C524CD97590039CD39 /* AddStudentLocation.swift */; };
 		EAE061AA249479B2008D5240 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE061A9249479B2008D5240 /* AppDelegate.swift */; };
 		EAE061AC249479B2008D5240 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE061AB249479B2008D5240 /* ViewController.swift */; };
 		EAE061AF249479B2008D5240 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE061AD249479B2008D5240 /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 		EA64AC6424BBE2C800816E58 /* StudentLocationTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationTableVIewCell.swift; sourceTree = "<group>"; };
 		EA64AC6624BBF89700816E58 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		EA64AC6824C4237100816E58 /* StudentInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformationViewController.swift; sourceTree = "<group>"; };
+		EA6C57C324CD5BC80039CD39 /* InforamtionpostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforamtionpostingViewController.swift; sourceTree = "<group>"; };
+		EA6C57C524CD97590039CD39 /* AddStudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentLocation.swift; sourceTree = "<group>"; };
 		EAE061A6249479B2008D5240 /* onthemap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onthemap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE061A9249479B2008D5240 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE061AB249479B2008D5240 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 				EA64AC6224BBDD6900816E58 /* StudentLocationTableView.swift */,
 				EA64AC6424BBE2C800816E58 /* StudentLocationTableVIewCell.swift */,
 				EA64AC6824C4237100816E58 /* StudentInformationViewController.swift */,
+				EA6C57C324CD5BC80039CD39 /* InforamtionpostingViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 			children = (
 				EA45C14B2495540E006249B6 /* UserInfo.swift */,
 				EA64AC6024BBDB5B00816E58 /* StudentLocation.swift */,
+				EA6C57C524CD97590039CD39 /* AddStudentLocation.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -344,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA6C57C624CD97590039CD39 /* AddStudentLocation.swift in Sources */,
 				EA64AC6524BBE2C800816E58 /* StudentLocationTableVIewCell.swift in Sources */,
 				EA64AC6124BBDB5B00816E58 /* StudentLocation.swift in Sources */,
 				EA45C14C2495540E006249B6 /* UserInfo.swift in Sources */,
@@ -352,6 +359,7 @@
 				EA43A44C24B9BD4000644690 /* OnTheMapViewController.swift in Sources */,
 				EAE061AC249479B2008D5240 /* ViewController.swift in Sources */,
 				EA64AC6324BBDD6900816E58 /* StudentLocationTableView.swift in Sources */,
+				EA6C57C424CD5BC90039CD39 /* InforamtionpostingViewController.swift in Sources */,
 				EA64AC6724BBF89700816E58 /* Data.swift in Sources */,
 				EAE061AA249479B2008D5240 /* AppDelegate.swift in Sources */,
 			);

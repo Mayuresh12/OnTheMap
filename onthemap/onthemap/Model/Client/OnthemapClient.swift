@@ -94,4 +94,30 @@ class OnTheMapClient {
         }
         task.resume()
     }
+    
+    class func postStudentLocation(location: StudentLocation, completion: @escaping (_ success: Bool, _ error: String?) -> Void ){
+        var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/StudentLocation")!)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let body: [String:Any] = [
+                 "uniqueKey": location.uniqueKey ?? " ",
+                 "firstName": location.firstName ?? "firstName",
+                 "lastName": location.lastName ?? "lastName",
+                 "mapString" :location.mapString!,
+                 "mediaURL": location.mediaURL ?? "www.google.com",
+                 "latitude": location.latitude!,
+                 "longitude":location.longitude!,
+                 ]
+        let jsonData = try! JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        request.httpBody = jsonData
+//        request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: .utf8)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+          if error != nil { // Handle error…
+              return
+          }
+          print(String(data: data!, encoding: .utf8)!)
+        }
+        task.resume()
+    }
 }

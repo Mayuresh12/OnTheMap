@@ -232,7 +232,6 @@
                                 </state>
                                 <connections>
                                     <action selector="findOntheMapButton:" destination="rmW-O3-U6Z" eventType="touchUpInside" id="Rxw-Zr-07Z"/>
-                                    <segue destination="oHS-zL-izH" kind="show" id="EV3-wb-7si"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Location Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iY2-53-cYh">
@@ -262,16 +261,17 @@
                     <connections>
                         <outlet property="enterLocationOutlet" destination="iY2-53-cYh" id="iLg-eK-81z"/>
                         <outlet property="findOnTheMapOutlet" destination="CFl-6W-Iaa" id="AB2-pV-cFG"/>
+                        <segue destination="oHS-zL-izH" kind="show" identifier="studentInformation" id="dbf-Rl-kuI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zx0-wH-0eu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2733.75" y="-692.95774647887322"/>
         </scene>
-        <!--View Controller-->
+        <!--Inforamtionposting View Controller-->
         <scene sceneID="ldq-1G-XCK">
             <objects>
-                <viewController id="oHS-zL-izH" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="oHS-zL-izH" customClass="InforamtionpostingViewController" customModule="onthemap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xhq-Yh-FNV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -292,32 +292,62 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7v-Q8-W36">
+                                        <rect key="frame" x="264" y="0.0" width="48" height="30"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButton:" destination="oHS-zL-izH" eventType="touchUpInside" id="DQH-HG-vhq"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.26965653899999997" green="0.27779656650000001" blue="0.71376389269999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstItem="N7v-Q8-W36" firstAttribute="top" secondItem="Auu-Zp-FWE" secondAttribute="top" id="7sn-sT-NQ6"/>
                                     <constraint firstAttribute="height" constant="150" id="DfW-ed-c4k"/>
                                     <constraint firstItem="O6G-92-VCc" firstAttribute="leading" secondItem="Auu-Zp-FWE" secondAttribute="leading" constant="8" id="Kdp-E4-0jZ"/>
                                     <constraint firstAttribute="bottom" secondItem="O6G-92-VCc" secondAttribute="bottom" constant="60" id="L7R-Hc-4YI"/>
                                     <constraint firstAttribute="trailing" secondItem="O6G-92-VCc" secondAttribute="trailing" constant="8" id="NWM-EX-GZU"/>
                                     <constraint firstItem="O6G-92-VCc" firstAttribute="top" secondItem="Auu-Zp-FWE" secondAttribute="top" constant="60" id="aPQ-hV-lhi"/>
+                                    <constraint firstItem="O6G-92-VCc" firstAttribute="top" secondItem="N7v-Q8-W36" secondAttribute="bottom" constant="30" id="dJW-Ur-h6J"/>
+                                    <constraint firstAttribute="trailing" secondItem="N7v-Q8-W36" secondAttribute="trailing" constant="8" id="lI5-x4-e6e"/>
                                 </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nb3-NY-gVU">
                                 <rect key="frame" x="0.0" y="158" width="320" height="390"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqp-BZ-5eY">
+                                <rect key="frame" x="123" y="464" width="74" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButton:" destination="oHS-zL-izH" eventType="touchUpInside" id="Dls-qZ-Prj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="G0U-cP-LpN" firstAttribute="trailing" secondItem="Auu-Zp-FWE" secondAttribute="trailing" id="47g-aa-828"/>
+                            <constraint firstItem="G0U-cP-LpN" firstAttribute="bottom" secondItem="tqp-BZ-5eY" secondAttribute="bottom" constant="54" id="Hkb-M8-ZZe"/>
                             <constraint firstItem="Nb3-NY-gVU" firstAttribute="top" secondItem="Auu-Zp-FWE" secondAttribute="bottom" constant="8" id="JBO-yq-3fk"/>
                             <constraint firstItem="G0U-cP-LpN" firstAttribute="bottom" secondItem="Nb3-NY-gVU" secondAttribute="bottom" id="VrY-oy-rbu"/>
                             <constraint firstItem="Auu-Zp-FWE" firstAttribute="leading" secondItem="G0U-cP-LpN" secondAttribute="leading" id="jY8-6b-YBU"/>
                             <constraint firstItem="Auu-Zp-FWE" firstAttribute="top" secondItem="G0U-cP-LpN" secondAttribute="top" id="luI-ZK-Hda"/>
                             <constraint firstItem="G0U-cP-LpN" firstAttribute="trailing" secondItem="Nb3-NY-gVU" secondAttribute="trailing" id="n5x-TV-ysC"/>
                             <constraint firstItem="Nb3-NY-gVU" firstAttribute="leading" secondItem="G0U-cP-LpN" secondAttribute="leading" id="nI9-Dc-pVG"/>
+                            <constraint firstItem="G0U-cP-LpN" firstAttribute="trailing" secondItem="tqp-BZ-5eY" secondAttribute="trailing" constant="123" id="wzX-eN-3oi"/>
+                            <constraint firstItem="tqp-BZ-5eY" firstAttribute="leading" secondItem="G0U-cP-LpN" secondAttribute="leading" constant="123" id="xjE-hV-3z8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G0U-cP-LpN"/>
                     </view>
+                    <navigationItem key="navigationItem" id="BjH-iy-9rI"/>
+                    <connections>
+                        <outlet property="locationTextFeild" destination="O6G-92-VCc" id="AOV-su-xEb"/>
+                        <outlet property="mapView" destination="Nb3-NY-gVU" id="n2H-K6-WjH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XeP-PN-KxY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

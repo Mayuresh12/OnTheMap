@@ -21,18 +21,24 @@ import Foundation
  "updatedAt": "2015-03-09T22:04:50.315Z"
  */
 struct Result: Codable {
-    let results: [StudentLocation]
+    var results: [StudentLocation]
 }
 
 struct StudentLocation: Codable {
-    let createdAt: String
-    let firstName: String
-    let lastName: String
-    let latitude: Double
-    let longitude: Double
-    let mapString: String
-    let mediaURL: String
-    let objectId: String
-    let uniqueKey: String
-    let updatedAt: String
+    var createdAt: String?
+    var firstName: String?
+    var lastName: String?
+    var latitude: Double?
+    var longitude: Double?
+    var mapString: String?
+    var mediaURL: String?
+    var objectId: String?
+    var uniqueKey: String?
+    var updatedAt: String?
+}
+
+extension StudentLocation {
+    init (mapString: String) {
+        self.mapString = mapString
+    }
 }
