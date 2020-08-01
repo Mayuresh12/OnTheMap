@@ -11,21 +11,20 @@ import MapKit
 
 class OnTheMapViewController: UIViewController, MKMapViewDelegate {
      @IBOutlet weak var mapView: MKMapView!
-    
+
     override func  viewDidLoad() {
 
         super.viewDidLoad()
         mapView.delegate = self
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
-    
         self.navigationController?.setNavigationBarHidden(false, animated: false)
 
         var annotations = [MKPointAnnotation]()
-    
-        OnTheMapClient.getStudentLocation { (result, error) in
-            if let result = result  {
+
+        OnTheMapClient.getStudentLocation { (result, _) in
+            if let result = result {
                 DispatchQueue.main.async {
                     for location in result {
                         let long = CLLocationDegrees(location.longitude! )
@@ -34,7 +33,7 @@ class OnTheMapViewController: UIViewController, MKMapViewDelegate {
                         let mediaURL = location.mediaURL!
                         let firstName = location.firstName!
                         let lastName = location.lastName!
-                        
+
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = cords
                         annotation.title = "\(firstName) \(lastName)"
@@ -48,30 +47,28 @@ class OnTheMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     // MARK: - MKMapViewDelegate
-    
+
     // Here we create a view with a "right callout accessory view". You might choose to look into other
     // decoration alternatives. Notice the similarity between this method and the cellForRowAtIndexPath
     // method in TableViewDataSource.
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
+
         let reuseId = "pin"
-        
+
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-        
+
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
             pinView!.pinTintColor = .red
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        }
-        else {
+        } else {
             pinView!.annotation = annotation
         }
-        
+
         return pinView
     }
-    
-    
+
     // This delegate method is implemented to respond to taps. It opens the system browser
     // to the URL specified in the annotationViews subtitle property.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {

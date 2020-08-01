@@ -9,13 +9,10 @@
 import UIKit
 
 class StudentLocationTableView: UITableViewController {
-    
     var data = [StudentLocation]()
     var count = 0
     var activityView: UIActivityIndicatorView?
-    
     @IBOutlet var studentTableView: UITableView!
-    
     @IBAction func reloadData(_ sender: Any) {
         DispatchQueue.main.async {
             self.studentTableView.reloadData()
@@ -26,8 +23,8 @@ class StudentLocationTableView: UITableViewController {
         self.showActivityIndicator()
         studentTableView.delegate = self
         studentTableView.dataSource = self
-        OnTheMapClient.getStudentLocation { (result, error) in
-            if let result = result  {
+        OnTheMapClient.getStudentLocation { (result, _) in
+            if let result = result {
                 self.count = result.count
                 self.data = result
                 DispatchQueue.main.async {
@@ -37,33 +34,28 @@ class StudentLocationTableView: UITableViewController {
             }
         }
     }
-    
     override func viewWillAppear(_ animated: Bool) {
                 self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return count
     }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = studentTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! StudentLocationTableViewCell
         let row = indexPath.row
         cell.studentName.text = "\(data[row].firstName!)  \(data[row].lastName!)"
         return cell
     }
-    
     func showActivityIndicator() {
         activityView = UIActivityIndicatorView(style: .gray)
         activityView?.center = self.view.center
         self.view.addSubview(activityView!)
         activityView?.startAnimating()
     }
-    
-    func hideActivityIndicator(){
-        if (activityView != nil){
+    func hideActivityIndicator() {
+        if activityView != nil {
             activityView?.stopAnimating()
         }
     }
-    
+
 }

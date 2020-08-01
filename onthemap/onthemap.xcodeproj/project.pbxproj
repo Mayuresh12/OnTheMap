@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA22627424D4150500D7BED7 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22627324D4150500D7BED7 /* Error.swift */; };
+		EA22627624D43B8900D7BED7 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22627524D43B8900D7BED7 /* LoginRequest.swift */; };
+		EA22627824D5499200D7BED7 /* UserPublicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22627724D5499200D7BED7 /* UserPublicData.swift */; };
 		EA43A44C24B9BD4000644690 /* OnTheMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43A44B24B9BD4000644690 /* OnTheMapViewController.swift */; };
 		EA45C14A24954F45006249B6 /* OnthemapClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA45C14924954F45006249B6 /* OnthemapClient.swift */; };
 		EA45C14C2495540E006249B6 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA45C14B2495540E006249B6 /* UserInfo.swift */; };
@@ -44,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA22627324D4150500D7BED7 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		EA22627524D43B8900D7BED7 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		EA22627724D5499200D7BED7 /* UserPublicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPublicData.swift; sourceTree = "<group>"; };
 		EA43A44B24B9BD4000644690 /* OnTheMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapViewController.swift; sourceTree = "<group>"; };
 		EA45C14924954F45006249B6 /* OnthemapClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnthemapClient.swift; sourceTree = "<group>"; };
 		EA45C14B2495540E006249B6 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -154,6 +160,7 @@
 		EA45C14724954EF8006249B6 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				EA22627524D43B8900D7BED7 /* LoginRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -164,6 +171,8 @@
 				EA45C14B2495540E006249B6 /* UserInfo.swift */,
 				EA64AC6024BBDB5B00816E58 /* StudentLocation.swift */,
 				EA6C57C524CD97590039CD39 /* AddStudentLocation.swift */,
+				EA22627324D4150500D7BED7 /* Error.swift */,
+				EA22627724D5499200D7BED7 /* UserPublicData.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -229,6 +238,7 @@
 				EAE061A2249479B2008D5240 /* Sources */,
 				EAE061A3249479B2008D5240 /* Frameworks */,
 				EAE061A4249479B2008D5240 /* Resources */,
+				EA22627924D5637500D7BED7 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -287,13 +297,16 @@
 				TargetAttributes = {
 					EAE061A5249479B2008D5240 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1130;
 					};
 					EAE061B9249479B5008D5240 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1130;
 						TestTargetID = EAE061A5249479B2008D5240;
 					};
 					EAE061C4249479B5008D5240 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1130;
 						TestTargetID = EAE061A5249479B2008D5240;
 					};
 				};
@@ -345,6 +358,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EA22627924D5637500D7BED7 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EAE061A2249479B2008D5240 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -353,7 +387,10 @@
 				EA6C57C624CD97590039CD39 /* AddStudentLocation.swift in Sources */,
 				EA64AC6524BBE2C800816E58 /* StudentLocationTableVIewCell.swift in Sources */,
 				EA64AC6124BBDB5B00816E58 /* StudentLocation.swift in Sources */,
+				EA22627424D4150500D7BED7 /* Error.swift in Sources */,
+				EA22627824D5499200D7BED7 /* UserPublicData.swift in Sources */,
 				EA45C14C2495540E006249B6 /* UserInfo.swift in Sources */,
+				EA22627624D43B8900D7BED7 /* LoginRequest.swift in Sources */,
 				EA64AC6924C4237100816E58 /* StudentInformationViewController.swift in Sources */,
 				EA45C14A24954F45006249B6 /* OnthemapClient.swift in Sources */,
 				EA43A44C24B9BD4000644690 /* OnTheMapViewController.swift in Sources */,
@@ -546,7 +583,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mayuresh.onthemap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -565,7 +602,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mayuresh.onthemap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -585,7 +622,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mayu.ue.onthemapTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/onthemap.app/onthemap";
 			};
@@ -606,7 +643,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mayu.ue.onthemapTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/onthemap.app/onthemap";
 			};
@@ -626,7 +663,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mayu.ue.onthemapUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = onthemap;
 			};
@@ -646,7 +683,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mayu.ue.onthemapUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = onthemap;
 			};

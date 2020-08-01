@@ -9,28 +9,23 @@
 import Foundation
 import UIKit
 import MapKit
-class InforamtionpostingViewController: UIViewController,UITextFieldDelegate
-{
+class InforamtionpostingViewController: UIViewController, UITextFieldDelegate {
     var location: StudentLocation?
 
-    
     @IBOutlet weak var locationTextFeild: UITextField!
     @IBOutlet weak var mapView: MKMapView!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationTextFeild.delegate = self
         showPin()
     }
-    
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-      {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         locationTextFeild.resignFirstResponder()
-          return true;
+          return true
       }
-    
+
     @IBAction func submitButton(_ sender: Any) {
         OnTheMapClient.postStudentLocation(location: self.location!) { (success, error) in
             guard error == nil else {
@@ -39,17 +34,24 @@ class InforamtionpostingViewController: UIViewController,UITextFieldDelegate
                     }
                 if success {
                     print("success")
-                }else{
+                } else {
                     print("ERROR")
                 }
             }
         }
-    
+
     @IBAction func cancelButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    func showPin(){
+    @IBAction func logoutButton(_ sender: Any) {
+        OnTheMapClient.logout {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+
+    func showPin() {
                 guard let location = location else { return }
                 let latitude = CLLocationDegrees(location.latitude!)
                 let longitude = CLLocationDegrees(location.longitude!)
@@ -63,4 +65,3 @@ class InforamtionpostingViewController: UIViewController,UITextFieldDelegate
                 mapView.setRegion(region, animated: true)
     }
 }
-

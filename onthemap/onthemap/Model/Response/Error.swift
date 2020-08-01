@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct ErrorCodes: Codable {
+    let status: Int
+    let error: String
+}

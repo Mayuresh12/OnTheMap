@@ -11,5 +11,5 @@ import UIKit
 
 class StudentLocationTableViewCell: UITableViewCell {
     @IBOutlet weak var studentName: UILabel!
-    
+
 }

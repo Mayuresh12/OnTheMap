@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct Udacity: Codable {
+    var udacity: LoginRequest
+}
+struct LoginRequest: Codable {
+    let username: String
+    let password: String
+}

@@ -11,17 +11,14 @@ import UIKit
 import CoreLocation
 
 class StudentInformationViewController: UIViewController, UITextFieldDelegate {
- 
-    
+
     @IBOutlet weak var findOnTheMapOutlet: UIButton!
     @IBOutlet weak var enterLocationOutlet: UITextField!
-    
-    
-  
+
     @IBAction func cancelButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -30,17 +27,24 @@ class StudentInformationViewController: UIViewController, UITextFieldDelegate {
         enterLocationOutlet.layer.cornerRadius = 10
         enterLocationOutlet.delegate = self
     }
-    
+
     @IBAction func findOntheMapButton(_ sender: Any) {
         let location = StudentLocation(mapString: enterLocationOutlet.text!)
         findLocation(location)
     }
+    @IBAction func logoutButton(_ sender: Any) {
+        OnTheMapClient.logout {
+             DispatchQueue.main.async {
+                 self.dismiss(animated: true, completion: nil)
+             }
+         }
+    }
 
     func findLocation(_ search: StudentLocation) {
-        CLGeocoder().geocodeAddressString(search.mapString!) { (placemarks, error) in
+        CLGeocoder().geocodeAddressString(search.mapString!) { (placemarks, _) in
             guard let firstLocation = placemarks?.first?.location else {
                 let alert = UIAlertController(title: "Erorr", message: "Location not found ", preferredStyle: .alert )
-                alert.addAction(UIAlertAction (title: "OK", style: .default, handler: { _ in
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
                     return
                 }))
                 self.present(alert, animated: true, completion: nil)
@@ -52,18 +56,15 @@ class StudentInformationViewController: UIViewController, UITextFieldDelegate {
            self.performSegue(withIdentifier: "studentInformation", sender: location)
         }
     }
-    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "studentInformation", let vc = segue.destination as? InforamtionpostingViewController {
             vc.location = (sender as! StudentLocation)
         }
     }
-    
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-      {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
           enterLocationOutlet.resignFirstResponder()
-          return true;
+          return true
       }
 }
