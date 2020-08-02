@@ -43,8 +43,8 @@ class ViewController: UIViewController {
         }
         if  userInfo?.account.registered == true {
             DispatchQueue.main.async {
-
                 let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                mapVC.modalPresentationStyle = .fullScreen
                 self.present(mapVC, animated: true, completion: nil)
             }
         }

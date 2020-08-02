@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="onthemap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="onthemap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -397,6 +397,7 @@
                     <connections>
                         <outlet property="locationTextFeild" destination="O6G-92-VCc" id="AOV-su-xEb"/>
                         <outlet property="mapView" destination="Nb3-NY-gVU" id="n2H-K6-WjH"/>
+                        <outlet property="submitButtonOutlet" destination="tqp-BZ-5eY" id="ahM-wW-FSU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XeP-PN-KxY" userLabel="First Responder" sceneMemberID="firstResponder"/>

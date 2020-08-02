@@ -41,4 +41,7 @@ extension StudentLocation {
     init (mapString: String) {
         self.mapString = mapString
     }
+    init (mediaURL: String) {
+        self.mediaURL = mediaURL
+    }
 }

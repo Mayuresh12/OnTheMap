@@ -16,7 +16,9 @@ class StudentInformationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var enterLocationOutlet: UITextField!
 
     @IBAction func cancelButton(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+            let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            mapVC.modalPresentationStyle = .fullScreen
+            self.present(mapVC, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -32,10 +34,15 @@ class StudentInformationViewController: UIViewController, UITextFieldDelegate {
         let location = StudentLocation(mapString: enterLocationOutlet.text!)
         findLocation(location)
     }
+    
     @IBAction func logoutButton(_ sender: Any) {
         OnTheMapClient.logout {
              DispatchQueue.main.async {
-                 self.dismiss(animated: true, completion: nil)
+                 self.dismiss(animated: true, completion: {
+                     let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "loginScreen")
+                     mapVC!.modalPresentationStyle = .fullScreen
+                     self.present(mapVC!, animated: true, completion: nil)
+                 })
              }
          }
     }
@@ -43,7 +50,7 @@ class StudentInformationViewController: UIViewController, UITextFieldDelegate {
     func findLocation(_ search: StudentLocation) {
         CLGeocoder().geocodeAddressString(search.mapString!) { (placemarks, _) in
             guard let firstLocation = placemarks?.first?.location else {
-                let alert = UIAlertController(title: "Erorr", message: "Location not found ", preferredStyle: .alert )
+                let alert = UIAlertController(title: "Error", message: "Location not found ", preferredStyle: .alert )
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
                     return
                 }))
@@ -58,8 +65,8 @@ class StudentInformationViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "studentInformation", let vc = segue.destination as? InforamtionpostingViewController {
-            vc.location = (sender as! StudentLocation)
+        if segue.identifier == "studentInformation", let viewController = segue.destination as? InforamtionpostingViewController {
+            viewController.location = (sender as! StudentLocation)
         }
     }
 

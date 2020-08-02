@@ -111,43 +111,62 @@ class OnTheMapClient {
         task.resume()
     }
 
-    class func postStudentLocation(location: StudentLocation, completion: @escaping (_ success: Bool, _ error: String?) -> Void ) {
+    class func postStudentLocation(location: StudentLocation, completion: @escaping (_ success: Bool, Error?) -> Void ) {
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/StudentLocation")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let body: [String: Any] = [
-                 "uniqueKey": location.uniqueKey ?? " ",
-                 "firstName": location.firstName ?? "firstName",
-                 "lastName": location.lastName ?? "lastName",
-                 "mapString": location.mapString!,
-                 "mediaURL": location.mediaURL ?? "www.google.com",
-                 "latitude": location.latitude!,
-                 "longitude": location.longitude!
-                 ]
+            "uniqueKey": OnTheMapClient.Auth.accountId,
+            "firstName": location.firstName ?? OnTheMapClient.Auth.firstName,
+            "lastName": location.lastName ?? OnTheMapClient.Auth.lastName,
+            "mapString": location.mapString!,
+            "mediaURL": location.mediaURL ?? "www.Google.com",
+            "latitude": location.latitude!,
+            "longitude": location.longitude!
+        ]
         let jsonData = try! JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
         request.httpBody = jsonData
-//        request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: .utf8)
+        //        request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: .utf8)
         let session = URLSession.shared
-        let task = session.dataTask(with: request) { data, _, error in
-          if error != nil { // Handle error…
-              return
-          }
-          print(String(data: data!, encoding: .utf8)!)
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil { // Handle error…
+                completion(false, error)
+                
+                return
+            }
+            guard let data = data else {
+                completion(false, error)
+                return
+            }
+            guard let status = (response as? HTTPURLResponse)?.statusCode, status >= 200 && status <= 399 else {
+                completion(false, error)
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let decodedData = try! decoder.decode(StudentLocation.self, from: data)
+                completion(true, nil)
+            } catch let error {
+                print(error.localizedDescription)
+                return
+            }
+            print(String(data: data, encoding: .utf8)!)
         }
         task.resume()
     }
 
     // TODO have to work on the model
-    class func getPublicUserData(completion: @escaping(_ success: Bool, _ student: StudentLocation?, _ error: String?) -> Void) {
+    class func getPublicUserData(completion: @escaping(_ success: Bool, _ student: StudentLocation?, _ error: Error?) -> Void) {
         let request = URLRequest(url: EndPoints.getPublicUserData.url)
         let session = URLSession.shared
-        let task = session.dataTask(with: request) { data, _, error in
+        let task = session.dataTask(with: request) {
+            data, _, error in
             if error != nil { // Handle error...
-                completion(false, nil, error?.localizedDescription)
+                completion(false, nil, error)
                 return
             }
             guard let data = data else {
-                completion(false, nil, error?.localizedDescription)
+                completion(false, nil, error)
                 return
             }
 
@@ -162,6 +181,7 @@ class OnTheMapClient {
             student.lastName = decodedData.lastName
             student.uniqueKey = Auth.accountId
             completion(true, student, nil)
+            print(String(data: data, encoding: .utf8)!)
         }
         task.resume()
     }

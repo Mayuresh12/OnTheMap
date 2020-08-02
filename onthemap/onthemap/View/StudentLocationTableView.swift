@@ -46,6 +46,9 @@ class StudentLocationTableView: UITableViewController {
         cell.studentName.text = "\(data[row].firstName!)  \(data[row].lastName!)"
         return cell
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("I selected the row")
+    }
     func showActivityIndicator() {
         activityView = UIActivityIndicatorView(style: .gray)
         activityView?.center = self.view.center
