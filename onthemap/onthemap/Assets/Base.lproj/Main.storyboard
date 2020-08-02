@@ -196,7 +196,11 @@
                                 <segue destination="rmW-O3-U6Z" kind="show" id="nah-0W-YkX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Reload" image="Reload" id="xvi-UQ-Ond"/>
+                        <barButtonItem key="rightBarButtonItem" title="Reload" image="Reload" id="xvi-UQ-Ond">
+                            <connections>
+                                <action selector="reloadData:" destination="419-QJ-os1" id="FlT-Qj-hxz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="aAO-FE-gLf" id="kVx-q2-4jw"/>
@@ -309,7 +313,7 @@
         <!--Inforamtionposting View Controller-->
         <scene sceneID="ldq-1G-XCK">
             <objects>
-                <viewController wantsFullScreenLayout="YES" id="oHS-zL-izH" customClass="InforamtionpostingViewController" customModule="onthemap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="infoScreen" wantsFullScreenLayout="YES" id="oHS-zL-izH" customClass="InforamtionpostingViewController" customModule="onthemap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xhq-Yh-FNV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -395,6 +399,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="BjH-iy-9rI"/>
                     <connections>
+                        <outlet property="hideCardAndButtons" destination="Auu-Zp-FWE" id="2ds-6Z-Idg"/>
                         <outlet property="locationTextFeild" destination="O6G-92-VCc" id="AOV-su-xEb"/>
                         <outlet property="mapView" destination="Nb3-NY-gVU" id="n2H-K6-WjH"/>
                         <outlet property="submitButtonOutlet" destination="tqp-BZ-5eY" id="ahM-wW-FSU"/>
@@ -469,6 +474,6 @@
         <image name="Swift_logo" width="1200" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3oz-Kr-Xak"/>
+        <segue reference="nah-0W-YkX"/>
     </inferredMetricsTieBreakers>
 </document>

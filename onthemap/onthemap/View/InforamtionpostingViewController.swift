@@ -11,16 +11,22 @@ import UIKit
 import MapKit
 class InforamtionpostingViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate {
     var location: StudentLocation?
-
+    var isHidden = false
     @IBOutlet weak var locationTextFeild: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var submitButtonOutlet: UIButton!
+    @IBOutlet weak var hideCardAndButtons: UIView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        submitButtonOutlet.isHidden = isHidden
+        locationTextFeild.isHidden = isHidden
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        //submitButtonOutlet.isEnabled = false
-       // submitButtonOutlet.backgroundColor = .gray
+        submitButtonOutlet.isEnabled = false
+        submitButtonOutlet.backgroundColor = .gray
         locationTextFeild.delegate = self
         locationTextFeild.attributedPlaceholder = NSAttributedString(string: "Enter a link to share here.",
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
@@ -33,8 +39,8 @@ class InforamtionpostingViewController: UIViewController, UITextFieldDelegate, M
       }
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-       // submitButtonOutlet.isEnabled = true
-       // submitButtonOutlet.backgroundColor = .systemGreen
+        submitButtonOutlet.isEnabled = true
+        submitButtonOutlet.backgroundColor = .systemGreen
         return true
     }
     @IBAction func submitButton(_ sender: Any) {
@@ -62,9 +68,9 @@ class InforamtionpostingViewController: UIViewController, UITextFieldDelegate, M
                     OnTheMapClient.postStudentLocation(location: self.location!) { (success, error) in
                         if success {
                             DispatchQueue.main.async {
-                                //                        let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-                                //                        mapVC.modalPresentationStyle = .fullScreen
-                                //                        self.present(mapVC, animated: true, completion: nil)
+                                                        let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                                                        mapVC.modalPresentationStyle = .fullScreen
+                                                        self.present(mapVC, animated: true, completion: nil)
                             }
                         } else {
                             self.showLoginFailure(message: error!.localizedDescription)

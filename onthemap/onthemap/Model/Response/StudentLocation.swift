@@ -38,10 +38,8 @@ struct StudentLocation: Codable {
 }
 
 extension StudentLocation {
-    init (mapString: String) {
+    init (mapString: String, mediaURL: String) {
         self.mapString = mapString
-    }
-    init (mediaURL: String) {
         self.mediaURL = mediaURL
     }
 }

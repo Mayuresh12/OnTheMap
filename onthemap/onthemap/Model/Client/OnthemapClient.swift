@@ -120,7 +120,7 @@ class OnTheMapClient {
             "firstName": location.firstName ?? OnTheMapClient.Auth.firstName,
             "lastName": location.lastName ?? OnTheMapClient.Auth.lastName,
             "mapString": location.mapString!,
-            "mediaURL": location.mediaURL ?? "www.Google.com",
+            "mediaURL": location.mediaURL ?? "https://www.Google.com",
             "latitude": location.latitude!,
             "longitude": location.longitude!
         ]

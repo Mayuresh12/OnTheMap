@@ -11,7 +11,11 @@ import MapKit
 
 class OnTheMapViewController: UIViewController, MKMapViewDelegate {
      @IBOutlet weak var mapView: MKMapView!
-
+    
+    @IBAction func reloadData(_ sender: Any) {
+        DispatchQueue.main.async {
+        }
+    }
     override func  viewDidLoad() {
 
         super.viewDidLoad()

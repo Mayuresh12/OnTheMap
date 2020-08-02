@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class StudentLocationTableView: UITableViewController {
     var data = [StudentLocation]()
@@ -47,7 +48,47 @@ class StudentLocationTableView: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        let location =
+            StudentLocation(createdAt: data[row].createdAt,
+                            firstName: data[row].firstName,
+                            lastName: data[row].lastName,
+                            latitude: data[row].latitude,
+                            longitude: data[row].longitude,
+                            mapString: data[row].mapString,
+                            mediaURL: data[row].mediaURL,
+                            objectId: data[row].objectId,
+                            uniqueKey: data[row].uniqueKey,
+                            updatedAt: data[row].updatedAt)
+        findLocation(location)
         print("I selected the row")
+    }
+    
+    func findLocation(_ search: StudentLocation) {
+        CLGeocoder().geocodeAddressString(search.mapString!) { (placemarks, _) in
+            guard let firstLocation = placemarks?.first?.location else {
+                let alert = UIAlertController(title: "Error", message: "Location not found ", preferredStyle: .alert )
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    return
+                }))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+           var location = search
+            location.latitude = firstLocation.coordinate.latitude
+           location.longitude = firstLocation.coordinate.longitude
+ let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "infoScreen") as! InforamtionpostingViewController
+        mapVC.modalPresentationStyle = .fullScreen
+            mapVC.location = search
+            mapVC.isHidden = true
+        self.present(mapVC, animated: true, completion: nil)
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "infoScreen", let viewController = segue.destination as? InforamtionpostingViewController {
+            viewController.location = (sender as! StudentLocation)
+        }
     }
     func showActivityIndicator() {
         activityView = UIActivityIndicatorView(style: .gray)
