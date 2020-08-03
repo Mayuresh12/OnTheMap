@@ -18,19 +18,20 @@ Submitted by: **Mayuresh Rao**
 
 ## The app has three view controller scenes:
 
-<u> **Login View:** </u>
+## Login View:
 
 Allows the user to log in using their Udacity credentials.</u>
 
 ![](gif/1.png)
 ![](gif/2.png)
-<u> **Map and Table Tabbed View:** </u>
+
+## Map and Table Tabbed View:
 
 Allows users to see the locations of other students in two formats.  
 
 ![](gif/3.png) ![](gif/4.png)
 
-<u> **### Information Posting View:** </u>
+## Information Posting View:
 
 Allows the users specify their own locations and links.
 
