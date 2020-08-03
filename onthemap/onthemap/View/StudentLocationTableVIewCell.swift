@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
+    // MARK: - StudentLocationTableViewCell: UITableViewCell
+
 class StudentLocationTableViewCell: UITableViewCell {
+    // MARK: Outlets
     @IBOutlet weak var studentName: UILabel!
     @IBOutlet weak var studentProfileUrl: UITextView!
     

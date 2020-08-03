@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct AddStudentLocation: Codable {
     var createdAt: String?
     var objectId: String?

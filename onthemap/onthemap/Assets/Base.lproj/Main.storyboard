@@ -166,17 +166,24 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="On The Map" id="J06-lv-wzr">
-                        <barButtonItem key="leftBarButtonItem" title="Pin" image="Pin" id="NTq-iU-idU">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="B0h-li-tY3" userLabel="Logout">
                             <connections>
-                                <segue destination="rmW-O3-U6Z" kind="show" id="3oz-Kr-Xak"/>
+                                <action selector="logoutButton:" destination="5vG-nG-mJu" id="rc1-44-lZx"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Reload" image="Reload" id="1Kl-Fp-vxB">
-                            <connections>
-                                <action selector="reloadData:" destination="5vG-nG-mJu" id="YCC-J1-GLA"/>
-                                <segue destination="5vG-nG-mJu" kind="show" animates="NO" id="19n-Dv-Wd1"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Reload" image="Reload" id="1Kl-Fp-vxB">
+                                <connections>
+                                    <action selector="reloadData:" destination="5vG-nG-mJu" id="YCC-J1-GLA"/>
+                                    <segue destination="5vG-nG-mJu" kind="show" animates="NO" id="19n-Dv-Wd1"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Pin" image="Pin" id="NTq-iU-idU">
+                                <connections>
+                                    <segue destination="rmW-O3-U6Z" kind="show" id="3oz-Kr-Xak"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -212,17 +219,24 @@
                         <viewLayoutGuide key="safeArea" id="iL2-lH-6lp"/>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="wVH-Y0-WO1">
-                        <barButtonItem key="leftBarButtonItem" title="Pin" image="Pin" id="28c-gP-3q0">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="qhx-8K-GY5" userLabel="Logout">
                             <connections>
-                                <segue destination="rmW-O3-U6Z" kind="show" id="nah-0W-YkX"/>
+                                <action selector="logoutButton:" destination="419-QJ-os1" id="10j-JJ-1Qw"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Reload" image="Reload" id="xvi-UQ-Ond">
-                            <connections>
-                                <action selector="reloadData:" destination="419-QJ-os1" id="FlT-Qj-hxz"/>
-                                <segue destination="419-QJ-os1" kind="show" animates="NO" id="D1Y-ej-1V4"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Reload" image="Reload" id="xvi-UQ-Ond">
+                                <connections>
+                                    <action selector="reloadData:" destination="419-QJ-os1" id="FlT-Qj-hxz"/>
+                                    <segue destination="419-QJ-os1" kind="show" animates="NO" id="D1Y-ej-1V4"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Pin" image="Pin" id="28c-gP-3q0">
+                                <connections>
+                                    <segue destination="rmW-O3-U6Z" kind="show" id="nah-0W-YkX"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="aAO-FE-gLf" id="kVx-q2-4jw"/>
@@ -301,6 +315,10 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="sXL-dt-1YR">
+                                <rect key="frame" x="140" y="331" width="40" height="20"/>
+                                <color key="color" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.89411764705882346" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -311,11 +329,14 @@
                             <constraint firstItem="Gxj-7J-XUl" firstAttribute="top" secondItem="F3E-e8-1FC" secondAttribute="top" constant="30" id="Non-NC-A5l"/>
                             <constraint firstItem="F3E-e8-1FC" firstAttribute="trailing" secondItem="0Mb-Pg-Oq0" secondAttribute="trailing" constant="16" id="We5-38-KyO"/>
                             <constraint firstItem="iY2-53-cYh" firstAttribute="top" secondItem="Gxj-7J-XUl" secondAttribute="bottom" constant="113" id="dy4-sE-8oB"/>
+                            <constraint firstItem="sXL-dt-1YR" firstAttribute="leading" secondItem="F3E-e8-1FC" secondAttribute="leading" constant="140" id="hDW-wR-kOL"/>
                             <constraint firstItem="F3E-e8-1FC" firstAttribute="trailing" secondItem="iY2-53-cYh" secondAttribute="trailing" constant="16" id="jAw-kO-nKo"/>
                             <constraint firstItem="Gxj-7J-XUl" firstAttribute="leading" secondItem="F3E-e8-1FC" secondAttribute="leading" constant="16" id="nYM-JY-Ign"/>
                             <constraint firstItem="iY2-53-cYh" firstAttribute="leading" secondItem="F3E-e8-1FC" secondAttribute="leading" constant="16" id="pBr-Fg-i47"/>
                             <constraint firstItem="CFl-6W-Iaa" firstAttribute="leading" secondItem="F3E-e8-1FC" secondAttribute="leading" constant="16" id="rjQ-JQ-xXc"/>
                             <constraint firstItem="Kfc-JQ-aTd" firstAttribute="top" secondItem="F3E-e8-1FC" secondAttribute="top" id="tEL-ba-kmT"/>
+                            <constraint firstItem="sXL-dt-1YR" firstAttribute="top" secondItem="iY2-53-cYh" secondAttribute="bottom" constant="48" id="vQG-Ep-Onv"/>
+                            <constraint firstItem="F3E-e8-1FC" firstAttribute="trailing" secondItem="sXL-dt-1YR" secondAttribute="trailing" constant="140" id="vaz-rH-MGq"/>
                             <constraint firstItem="F3E-e8-1FC" firstAttribute="trailing" secondItem="CFl-6W-Iaa" secondAttribute="trailing" constant="16" id="zqu-M2-h83"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="F3E-e8-1FC"/>
@@ -324,6 +345,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="sXL-dt-1YR" id="nIl-kg-R8S"/>
                         <outlet property="enterLocationOutlet" destination="iY2-53-cYh" id="iLg-eK-81z"/>
                         <outlet property="findOnTheMapOutlet" destination="CFl-6W-Iaa" id="AB2-pV-cFG"/>
                         <segue destination="oHS-zL-izH" kind="show" identifier="studentInformation" id="dbf-Rl-kuI"/>

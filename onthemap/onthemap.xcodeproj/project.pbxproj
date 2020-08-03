@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		EA22627424D4150500D7BED7 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22627324D4150500D7BED7 /* Error.swift */; };
 		EA22627624D43B8900D7BED7 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22627524D43B8900D7BED7 /* LoginRequest.swift */; };
-		EA22627824D5499200D7BED7 /* UserPublicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22627724D5499200D7BED7 /* UserPublicData.swift */; };
 		EA43A44C24B9BD4000644690 /* OnTheMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43A44B24B9BD4000644690 /* OnTheMapViewController.swift */; };
 		EA45C14A24954F45006249B6 /* OnthemapClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA45C14924954F45006249B6 /* OnthemapClient.swift */; };
 		EA45C14C2495540E006249B6 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA45C14B2495540E006249B6 /* UserInfo.swift */; };
@@ -49,7 +48,6 @@
 /* Begin PBXFileReference section */
 		EA22627324D4150500D7BED7 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		EA22627524D43B8900D7BED7 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
-		EA22627724D5499200D7BED7 /* UserPublicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPublicData.swift; sourceTree = "<group>"; };
 		EA43A44B24B9BD4000644690 /* OnTheMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapViewController.swift; sourceTree = "<group>"; };
 		EA45C14924954F45006249B6 /* OnthemapClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnthemapClient.swift; sourceTree = "<group>"; };
 		EA45C14B2495540E006249B6 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 				EA64AC6024BBDB5B00816E58 /* StudentLocation.swift */,
 				EA6C57C524CD97590039CD39 /* AddStudentLocation.swift */,
 				EA22627324D4150500D7BED7 /* Error.swift */,
-				EA22627724D5499200D7BED7 /* UserPublicData.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -388,7 +385,6 @@
 				EA64AC6524BBE2C800816E58 /* StudentLocationTableVIewCell.swift in Sources */,
 				EA64AC6124BBDB5B00816E58 /* StudentLocation.swift in Sources */,
 				EA22627424D4150500D7BED7 /* Error.swift in Sources */,
-				EA22627824D5499200D7BED7 /* UserPublicData.swift in Sources */,
 				EA45C14C2495540E006249B6 /* UserInfo.swift in Sources */,
 				EA22627624D43B8900D7BED7 /* LoginRequest.swift in Sources */,
 				EA64AC6924C4237100816E58 /* StudentInformationViewController.swift in Sources */,
