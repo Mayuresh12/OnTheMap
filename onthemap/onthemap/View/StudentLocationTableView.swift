@@ -45,6 +45,7 @@ class StudentLocationTableView: UITableViewController {
         let cell = studentTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! StudentLocationTableViewCell
         let row = indexPath.row
         cell.studentName.text = "\(data[row].firstName!)  \(data[row].lastName!)"
+        cell.studentProfileUrl.text = "\(data[row].mediaURL!)"
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

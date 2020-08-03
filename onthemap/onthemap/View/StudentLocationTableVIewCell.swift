@@ -11,5 +11,6 @@ import UIKit
 
 class StudentLocationTableViewCell: UITableViewCell {
     @IBOutlet weak var studentName: UILabel!
-
+    @IBOutlet weak var studentProfileUrl: UITextView!
+    
 }
